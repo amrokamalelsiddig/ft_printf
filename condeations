@@ -1,0 +1,14 @@
+You have to implement the following conversions:
+
+• %p The void * pointer argument has to be printed in hexadecimal format.
+• %x Prints a number in hexadecimal (base 16) lowercase format.
+• %X Prints a number in hexadecimal (base 16) uppercase format.
+
+
+
+• %u Prints an unsigned decimal (base 10) number.
+• %% Prints a percent sign
+• %c Prints a single character.
+• %s Prints a string (as defined by the common C convention).
+• %d Prints a decimal (base 10) number.
+• %i Prints an integer in base 10.
