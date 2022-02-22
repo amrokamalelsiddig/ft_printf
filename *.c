@@ -6,7 +6,7 @@
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:43:47 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/02/20 03:14:01 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/02/23 02:51:38 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_printf(char *str, ...)
 			{
 				temp = ft_atoi(va_arg(args, char));
 				retrn += ft_putstr(temp);
-				free(temp);
+				//free(temp);
 			}
 		}
 		count++;
@@ -50,13 +50,12 @@ int	ft_printf(char *str, ...)
 	return (retrn);
 }
 
+int	main(void)
+{
+	long int	x;
 
-
-// int	main(void)
-// {
-// 	long int	x;
-
-// 	x = 2147483647;
-// 	ft_printf("%u", x);
-// 	return (0);
-// }
+	x = 21474836;
+	printf("%u\n", x);
+	ft_printf("%u", x);
+	return (0);
+}

@@ -1,6 +1,10 @@
 {
 	"cSpell.ignoreWords": [
 		"aelsiddi",
+		"hexa",
 		"retrn"
-	]
+	],
+	"files.associations": {
+		"__locale": "c"
+	}
 }

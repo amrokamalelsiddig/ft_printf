@@ -6,41 +6,11 @@
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 03:13:06 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/02/20 03:13:57 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/02/23 02:44:21 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_atoi(const char *str)
-{
-	int				s;
-	int				i;
-	unsigned int	result;
-
-	s = 1;
-	i = 0;
-	result = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			s = s * -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = 10 * result + str[i] - '0';
-		i++;
-	}
-	if (result > 2147483647 && s == 1)
-		return (-1);
-	if (result > 2147483648 && s == -1)
-		return (0);
-	return (result * s);
-}
-
 
 int	ft_putchar(char c)
 {
@@ -83,4 +53,43 @@ int	ft_putstr(char *str)
 	while (str[++count])
 		retrn += ft_putchar(str[count]);
 	return (retrn);
+}
+
+int	ft_atoi(const char *str)
+{
+	int				s;
+	int				i;
+	unsigned int	result;
+
+	s = 1;
+	i = 0;
+	result = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			s = s * -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = 10 * result + str[i] - '0';
+		i++;
+	}
+	if (result > 2147483647 && s == 1)
+		return (-1);
+	if (result > 2147483648 && s == -1)
+		return (0);
+	return (result * s);
+}
+
+
+char	ft_hexa(int n)
+{
+	char	result;
+
+	if (!n || n == 0)
+		return (0);
+	return (0);
 }
