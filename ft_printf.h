@@ -6,7 +6,7 @@
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:43:22 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/02/23 02:36:52 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/02/26 03:42:27 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int		ft_atoi(const char *str);
 int		ft_putnbr(int nb);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
-int		ft_printf(char *str, ...);
-char	ft_hexa(int n);
+char	ft_hexa(int n, char c);
 char	*ft_itoa(int nb);
 int		digit_count(long n);
+int		ft_printf(const char *str, ...)
 
 
 #endif

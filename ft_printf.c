@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   *.c                                                :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:43:47 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/02/23 02:51:38 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/02/26 03:40:18 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char *str, ...)
+int	ft_printf(const char *str, ...)
 {	
 	int		count;
 	char	temp;
@@ -41,8 +41,9 @@ int	ft_printf(char *str, ...)
 			{
 				temp = ft_atoi(va_arg(args, char));
 				retrn += ft_putstr(temp);
-				//free(temp);
 			}
+			else if (str[count] == 'x' || str[count] == 'X' )
+				retrn += ft_hexa(va_arg(args, char), str[count]);
 		}
 		count++;
 	}
@@ -50,12 +51,22 @@ int	ft_printf(char *str, ...)
 	return (retrn);
 }
 
-int	main(void)
-{
-	long int	x;
+// int	main(void)
+// {
+// 	int	n;
 
-	x = 21474836;
-	printf("%u\n", x);
-	ft_printf("%u", x);
-	return (0);
-}
+// 	n = 0;
+// 	while (n < 32)
+// 	{
+// 		printf("%x\n", n);
+// 		n++;
+// 	}
+// 	n = 0;
+// 	while (n < 32)
+// 	{
+// 		ft_printf("%x\n", n);
+// 		n++;
+// 	}
+
+// 	return (0);
+// }

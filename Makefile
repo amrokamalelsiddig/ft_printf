@@ -1,31 +1,29 @@
-SRC = 			*.c , helpers.c
+SRCS =  ft_printf.c  
 
+CC = gcc
 
-OBJS			= $(SRCS:.c=.o)
+FLAGS = -c -Wall -Wextra -Werror
 
-BONUS			=	
-BONUS_OBJS		= $(BONUS:.c=.o)
+INCLUDES = -I./includes
 
-CC				= gcc
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+OBJS = $(SRCS:.c=.o)
 
-NAME			= libftprintf.a
+$(NAME): $(OBJS)
+	$(MAKE) bonus -C ./libft
+	cp libft/libft.a $(NAME)
+	$(CC) $(FLAGS) $(INCLUDES) $(SRCS)
+	ar -rcs $(NAME) $(OBJS)
 
-all:			$(NAME)
+all : $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
-$(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+clean :
+	$(MAKE) clean -C ./libft
+	rm -rf $(SURPL_O) 
+	rm -rf $(OBJS)
 
-clean:
-				$(RM) $(OBJS) $(BONUS_OBJS)
+fclean : clean
+	$(MAKE) fclean -C ./libft
+	rm -rf $(NAME)
 
-fclean:			clean
-				$(RM) $(NAME)
-
-re:				fclean $(NAME)
-
-bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
-.PHONY:			all clean fclean re bonus
+re : fclean all
