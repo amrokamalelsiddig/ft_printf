@@ -10,21 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINT_H
+# define FT_PRINT_H
 
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
 
-int		ft_atoi(const char *str);
+int	    ft_atoi(char *str);
 int		ft_putnbr(int nb);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
 char	ft_hexa(int n, char c);
-char	*ft_itoa(int nb);
-int		digit_count(long n);
-int		ft_printf(const char *str, ...)
-
+int		ft_printf(char *str, ...);
 
 #endif

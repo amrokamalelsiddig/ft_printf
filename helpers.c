@@ -18,7 +18,7 @@ int	ft_putchar(char c)
 	return (1);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int				s;
 	int				i;
@@ -89,7 +89,6 @@ int	ft_putstr(char *str)
 char	ft_hexa(int n, char c)
 {
 	char	*hex;
-	int		temp;
 
 	hex = "0123456789abcdef";
 	if (c == 'X')
