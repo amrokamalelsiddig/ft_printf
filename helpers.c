@@ -6,7 +6,7 @@
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 03:13:06 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/02/26 02:45:17 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/03/05 04:07:01 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,14 @@ int	ft_putnbr(int nb)
 int	ft_putstr(char *str)
 {
 	int		count;
-	int		retrn;
+	int		result;
 
 	count = -1;
-	retrn = 0;
+	result = 0;
 	while (str[++count])
-		retrn += ft_putchar(str[count]);
-	return (retrn);
+		result += ft_putchar(str[count]);
+	return (result);
 }
-
 
 char	ft_hexa(int n, char c)
 {

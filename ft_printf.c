@@ -6,47 +6,117 @@
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:43:47 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/02/26 03:40:18 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/03/05 06:01:21 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char *str, ...)
-{	
-	int			count;
-	char 		temp;
-	int			retrn;
-	va_list		args;
+// int	ft_printf(char *str, ...)
+// {	
+// 	int			count;
+// 	char		temp;
+// 	int			retrn;
+// 	va_list		args;
 
+// 	count = 0;
+// 	retrn = 0;
+// 	va_start(args, str);
+// 	while (str[count])
+// 	{
+// 		if (str[count] == '%')
+// 		{
+// 			count++;
+// 			if (str[count] == 's')
+// 				retrn += ft_putstr(va_arg(args, char *));
+// 			else if (str[count] == 'c')
+// 				retrn += ft_putchar(va_arg(args, int));
+// 			else if (str[count] == 'd')
+// 				retrn += ft_putnbr(va_arg(args, int));
+// 			else if (str[count] == 'i')
+// 				retrn += ft_putnbr(va_arg(args, int));
+// 			else if (str[count] == '%')
+// 				retrn += ft_putchar('%');
+// 			else if (str[count] == 'u')
+// 			{
+// 				temp = ft_atoi(va_arg(args, char *));
+// 				retrn += ft_putnbr(temp);
+// 			}
+// 			else if (str[count] == 'x' || str[count] == 'X' )
+// 				retrn += ft_hexa(va_arg(args, int), str[count]);
+// 		}
+// 		count++;
+// 	}
+// 	va_end(args);
+// 	return (retrn);
+// }
+
+// int	search_flag(va_list arg, const char format)
+// {
+// 	int		len;
+
+// 	len = 0;
+// 	if (format == 'c')
+// 		len += ft_putchar(va_arg(arg, int));
+// 	if (format == 's')
+// 		len += ft_putstr(va_arg(arg, char *));
+// 	else if (format == '%')
+// 		len += write(1, "%", 1);
+// 	return (len);
+// }
+
+int	search_flag(va_list args, const char format)
+{
+	int	print_length;
+
+	print_length = 0;
+	if (format == 'c')
+		print_length += ft_putchar(va_arg(args, int));
+	else if (format == 's')
+		print_length += ft_putstr(va_arg(args, char *));
+	else if (format == 'd' || format == 'i')
+		print_length += ft_putnbr(va_arg(args, int));
+	else if (format == 'u')
+		print_length += ft_putnbr(va_arg(args, long unsigned int));
+	else if (format == 'x' || format == 'X')
+		print_length += ft_hexa(va_arg(args, unsigned int), format);
+	else if (format == '%')
+		print_length += write(1, "%", 1);
+	return (print_length);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	int		len;
+	int		count;
+	va_list	arg;
+
+	len = 0;
 	count = 0;
-	retrn = 0;
-	va_start(args,str);
-	while (str[count])
+	va_start(arg, format);
+	while (format[count])
 	{
-		if (str[count] == '%')
+		if (format[count] == '%')
 		{
+			len += search_flag(arg, format[count + 1 ]);
 			count++;
-			if (str[count] == 's')
-				retrn += ft_putstr(va_arg(args,char *));
-			else if (str[count] == 'c')
-				retrn += ft_putchar(va_arg(args,int));
-			else if (str[count] == 'd' || str[count] == 'i' )
-				retrn += ft_putnbr(va_arg(args, int));
-			else if (str[count] == 'i')
-				retrn += ft_putnbr(va_arg(args, int));
-			else if (str[count] == '%')
-				retrn += ft_putchar('%');
-			else if (str[count] == 'u')
-			{
-				temp = ft_atoi(va_arg(args,char *));
-				retrn += ft_putnbr(temp);
-			}
-			else if (str[count] == 'x' || str[count] == 'X' )
-				retrn += ft_hexa(va_arg(args, int), str[count]);
 		}
+		else
+			len += ft_putchar(format[count]);
 		count++;
 	}
-	va_end(args);
-	return (retrn);
+	va_end(arg);
+	return (len);
 }
+
+// int	main(void)
+// {
+// 	int	res;
+// 	int	res2;
+
+// 	res = ft_printf("%1c\n",'c');
+// 	res2 = printf("%1c\n",'c');
+// 	printf("res = %d\n", res);
+// 	printf("res2 = %d\n", res2);
+// 	return (0);
+// }

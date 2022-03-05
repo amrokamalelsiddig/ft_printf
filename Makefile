@@ -1,88 +1,33 @@
-CFLAGS	+=		-Wall -Wextra -Werror
-CFLAGS	+=		-I./includes/
+NAME		=	libftprintf.a
 
-NAME = ft_printf.a
+INCLUDE		=	ft_print.h
 
-SRCS = ./libft/ft_memset.c\
-		./libft/ft_bzero.c\
-		./libft/ft_memcpy.c\
-		./libft/ft_memccpy.c\
-		./libft/ft_memmove.c\
-		./libft/ft_memchr.c\
-		./libft/ft_memcmp.c\
-		./libft/ft_strlen.c\
-		./libft/ft_strdup.c\
-		./libft/ft_strchr.c\
-		./libft/ft_strrchr.c\
-		./libft/ft_strnstr.c\
-		./libft/ft_strncmp.c\
-		./libft/ft_atoi.c\
-		./libft/ft_isalpha.c\
-		./libft/ft_isdigit.c\
-		./libft/ft_isalnum.c\
-		./libft/ft_isascii.c\
-		./libft/ft_isprint.c\
-		./libft/ft_toupper.c\
-		./libft/ft_tolower.c\
-		./libft/ft_strmapi.c\
-		./libft/ft_strjoin.c\
-		./libft/ft_strtrim.c\
-		./libft/ft_itoa.c\
-		./libft/ft_putchar_fd.c\
-		./libft/ft_putstr_fd.c\
-		./libft/ft_putnbr_fd.c\
-		./libft/ft_lstnew.c\
-		./libft/ft_lstdelone.c\
-		./libft/ft_lstiter.c\
-		./libft/ft_lstmap.c\
+SRCS		=	ft_printf.c \
+				helpers.c   \
 
+OBJS		=	$(SRCS:.c=.o)
+LIBC		=	ar rcs
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror
+RM			=	rm -f
 
-OBJS = 	./libft/ft_memset.o\
-		./libft/ft_bzero.o\
-		./libft/ft_memcpy.o\
-		./libft/ft_memmove.o\
-		./libft/ft_memccpy.o\
-		./libft/ft_memchr.o\
-		./libft/ft_memcmp.o\
-		./libft/ft_strlen.o\
-		./libft/ft_strdup.o\
-		./libft/ft_strchr.o\
-		./libft/ft_strrchr.o\
-		./libft/ft_strnstr.o\
-		./libft/ft_strncmp.o\
-		./libft/ft_atoi.o\
-		./libft/ft_isalpha.o\
-		./libft/ft_isdigit.o\
-		./libft/ft_isalnum.o\
-		./libft/ft_isascii.o\
-		./libft/ft_isprint.o\
-		./libft/ft_toupper.o\
-		./libft/ft_tolower.o\
-		./libft/ft_strmapi.o\
-		./libft/ft_strjoin.o\
-		./libft/ft_strtrim.o\
-		./libft/ft_itoa.o\
-		./libft/ft_putnbr_fd.o\
-		./libft/ft_putchar_fd.o\
-		./libft/ft_putstr_fd.o\
-		./libft/ft_lstnew.o\
-		./libft/ft_lstdelone.o\
-		./libft/ft_lstiter.o\
-		./libft/ft_lstmap.o\
+.c.o:
+			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INCLUDE)
 
-all: $(NAME)
+$(NAME):	 $(OBJS) 
+			$(LIBC) $(NAME) $(OBJS)
 
-$(NAME): $(SRCS)
-	gcc -c $(CFLAGS) $(SRCS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+all:		$(NAME)
+
+bonus:		all
 
 clean:
-	rm -f $(OBJS)
+			$(RM) $(OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:		clean
+			$(RM) $(NAME)
 
-re: fclean all
+re:			fclean all
 
-.PHONY	:				all clean fclean re
+
+.PHONY:		all clean fclean norm re bonus
