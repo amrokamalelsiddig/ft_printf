@@ -6,64 +6,11 @@
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:43:47 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/03/05 21:52:46 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/03/05 22:13:26 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// int	ft_printf(char *str, ...)
-// {	
-// 	int			count;
-// 	char		temp;
-// 	int			retrn;
-// 	va_list		args;
-
-// 	count = 0;
-// 	retrn = 0;
-// 	va_start(args, str);
-// 	while (str[count])
-// 	{
-// 		if (str[count] == '%')
-// 		{
-// 			count++;
-// 			if (str[count] == 's')
-// 				retrn += ft_putstr(va_arg(args, char *));
-// 			else if (str[count] == 'c')
-// 				retrn += ft_putchar(va_arg(args, int));
-// 			else if (str[count] == 'd')
-// 				retrn += ft_putnbr(va_arg(args, int));
-// 			else if (str[count] == 'i')
-// 				retrn += ft_putnbr(va_arg(args, int));
-// 			else if (str[count] == '%')
-// 				retrn += ft_putchar('%');
-// 			else if (str[count] == 'u')
-// 			{
-// 				temp = ft_atoi(va_arg(args, char *));
-// 				retrn += ft_putnbr(temp);
-// 			}
-// 			else if (str[count] == 'x' || str[count] == 'X' )
-// 				retrn += ft_hexa(va_arg(args, int), str[count]);
-// 		}
-// 		count++;
-// 	}
-// 	va_end(args);
-// 	return (retrn);
-// }
-
-// int	search_flag(va_list arg, const char format)
-// {
-// 	int		len;
-
-// 	len = 0;
-// 	if (format == 'c')
-// 		len += ft_putchar(va_arg(arg, int));
-// 	if (format == 's')
-// 		len += ft_putstr(va_arg(arg, char *));
-// 	else if (format == '%')
-// 		len += write(1, "%", 1);
-// 	return (len);
-// }
 
 int	search_flag(va_list args, const char format)
 {
@@ -110,13 +57,3 @@ int	ft_printf(const char *format, ...)
 	va_end(arg);
 	return (len);
 }
-/*
-int	main()
-{
-	char	*s = "asd";
-	
-	printf("%d", printf("%p", s));
-	printf("\n");
-	ft_printf("%d", ft_printf("%p", s));
-	printf("\n");
-}*/

@@ -6,12 +6,12 @@
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:43:22 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/03/05 21:53:45 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/03/05 22:15:12 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -26,6 +26,5 @@ int		ft_printf(const char *str, ...);
 int		search_flag(va_list arg, const char format);
 int		ft_putnbr_u(unsigned int n);
 int		handle_ptr(unsigned long ptr, int c);
-
 
 #endif

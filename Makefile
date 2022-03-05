@@ -1,6 +1,6 @@
 NAME		=	libftprintf.a
 
-INCLUDE		=	ft_print.h
+INCLUDE		=	ft_printf.h
 
 SRCS		=	ft_printf.c \
 				helpers.c   \
