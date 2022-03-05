@@ -6,7 +6,7 @@
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:43:47 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/03/05 06:01:21 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/03/05 21:52:46 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,14 @@ int	search_flag(va_list args, const char format)
 		print_length += ft_putchar(va_arg(args, int));
 	else if (format == 's')
 		print_length += ft_putstr(va_arg(args, char *));
-	else if (format == 'd' || format == 'i')
+	else if (format == 'i' || format == 'd')
 		print_length += ft_putnbr(va_arg(args, int));
 	else if (format == 'u')
-		print_length += ft_putnbr(va_arg(args, long unsigned int));
+		print_length += ft_putnbr_u(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
 		print_length += ft_hexa(va_arg(args, unsigned int), format);
+	else if (format == 'p')
+		print_length += handle_ptr(va_arg(args, unsigned long), 0);
 	else if (format == '%')
 		print_length += write(1, "%", 1);
 	return (print_length);
@@ -108,15 +110,13 @@ int	ft_printf(const char *format, ...)
 	va_end(arg);
 	return (len);
 }
-
-// int	main(void)
-// {
-// 	int	res;
-// 	int	res2;
-
-// 	res = ft_printf("%1c\n",'c');
-// 	res2 = printf("%1c\n",'c');
-// 	printf("res = %d\n", res);
-// 	printf("res2 = %d\n", res2);
-// 	return (0);
-// }
+/*
+int	main()
+{
+	char	*s = "asd";
+	
+	printf("%d", printf("%p", s));
+	printf("\n");
+	ft_printf("%d", ft_printf("%p", s));
+	printf("\n");
+}*/

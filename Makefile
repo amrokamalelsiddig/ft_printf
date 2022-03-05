@@ -4,6 +4,7 @@ INCLUDE		=	ft_print.h
 
 SRCS		=	ft_printf.c \
 				helpers.c   \
+				ptr.c
 
 OBJS		=	$(SRCS:.c=.o)
 LIBC		=	ar rcs
