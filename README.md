@@ -10,3 +10,8 @@ https://github.com/Tripouille/printfTester#printftester-2019
 
 ft_printf_tester by paulo-santana
 https://github.com/paulo-santana/ft_printf_tester
+
+Some examples
+
+Output:
+
