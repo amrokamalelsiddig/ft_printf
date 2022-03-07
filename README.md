@@ -16,5 +16,7 @@ https://github.com/Tripouille/printfTester#printftester-2019
 <img width="1261" alt="Screen Shot 2022-03-07 at 10 21 51 PM" src="https://user-images.githubusercontent.com/71084868/157094635-69bbbcc8-7138-4b5e-b48d-5b2b91bf8716.png">
 
 ft_printf_tester by paulo-santana
+<img width="974" alt="Screen Shot 2022-03-07 at 10 30 28 PM" src="https://user-images.githubusercontent.com/71084868/157095884-42f2b84d-6884-45f9-96ab-1b138ad6474b.png">
+
 https://github.com/paulo-santana/ft_printf_tester
 <img width="993" alt="Screen Shot 2022-03-07 at 10 24 29 PM" src="https://user-images.githubusercontent.com/71084868/157094997-4e139c1d-8bda-4a04-b1a1-e174227361d0.png">
