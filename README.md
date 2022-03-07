@@ -13,6 +13,7 @@ tested by :
 
 printfTester by Tripouille
 https://github.com/Tripouille/printfTester#printftester-2019
+<img width="1261" alt="Screen Shot 2022-03-07 at 10 21 51 PM" src="https://user-images.githubusercontent.com/71084868/157094635-69bbbcc8-7138-4b5e-b48d-5b2b91bf8716.png">
 
 ft_printf_tester by paulo-santana
 https://github.com/paulo-santana/ft_printf_tester
