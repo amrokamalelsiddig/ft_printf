@@ -20,8 +20,6 @@ $(NAME):	 $(OBJS)
 
 all:		$(NAME)
 
-bonus:		all
-
 clean:
 			$(RM) $(OBJS)
 

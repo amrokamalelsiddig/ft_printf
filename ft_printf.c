@@ -6,7 +6,7 @@
 /*   By: aelsiddi <aelsiddi@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:43:47 by aelsiddi          #+#    #+#             */
-/*   Updated: 2022/03/05 22:13:26 by aelsiddi         ###   ########.fr       */
+/*   Updated: 2022/03/07 23:10:27 by aelsiddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	ft_printf(const char *format, ...)
 	va_start(arg, format);
 	while (format[count])
 	{
-		if (format[count] == '%')
+		if ((format[count] == '%') && (format[count + 1] != '\0'))
 		{
-			len += search_flag(arg, format[count + 1 ]);
+			len += search_flag(arg, format[count + 1]);
 			count++;
 		}
 		else
